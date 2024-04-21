@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% block title %}
+HealthSuit - heart prediction
+{% endblock %}	
+{% block body %}  
+    <!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Prediction</h2>
+							<ul class="bread-list">
+								<li><a href="/">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">heart disease</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+				
+		<!-- Start Contact Us -->
+		<section class="contact-us section">
+			<div class="container">
+				<div class="inner">
+					<div class="row"> 
+						<div class="col-lg-6">
+							<div class="contact-us-left">
+                                {{user.Name}}
+                                {% if messages %}
+                                {% for message in messages %}
+                                {{message}}
+                               
+                                {% endfor %}
+                                {% if prediction == 0 %}
+                                <a href="doctors/cardiology"></a><button class="btn" type="submit">Doctors</button>
+                                {% endif %}
+                                {% endif %}
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="contact-us-form">
+								<h2>Heart Disease</h2>
+								<p>If you need to predict heart disease , then enter your details</p>
+								<!-- Form -->
+								<form class="form" method="POST">
+                                    {% csrf_token %}
+									<div class="row">
+									
+										<div class="col-lg-6">
+											<div class="form-group">
+												<input type="text" name="name" value="{{user.Name}}" required="">
+											</div>
+										</div>
+										
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="age" placeholder="Your Age" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <select name="gender" id="gender">
+                                                        <option>Your Gender?</option>
+                                                        <option value="0">Female</option>
+                                                        <option value="1">Male</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <select name="smoker" id="smoker">
+                                                        <option>Current Smoker?</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1">Yes</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="cigerete" placeholder="Cigerete per Day" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <select name="bp" id="bp">
+                                                        <option>BP Medicine??</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1">Yes</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <select name="stroke" id="stroke">
+                                                        <option>Prevalent Stroke?</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1">Yes</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <select name="hyper" id="hyper">
+                                                        <option>Prevalent Hypertension</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1">Yes</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <select name="diabetes" id="diabetes">
+                                                        <option>Diabetes????</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1">Yes</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="cholestrol" placeholder="Total Cholestrol(mg/dL)" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="sysbp" placeholder="Systolic Bloodpressure(mmHg)" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="diabp" placeholder="Diastolic Bloodpressure(mmHg)" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="bmi" placeholder="BMI" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="heartrate" placeholder="HeartRate(beats/min)" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="glucose" placeholder="Glucose (mg/dL)" required="">
+                                                </div>
+                                            </div>
+										<div class="col-12">
+											<div class="form-group login-btn">
+												<button class="btn" type="submit">Predict</button>
+											</div>
+										</div>
+									</div>
+            
+								</form>
+								<!--/ End Form -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Contact Us -->
+{% endblock %}	

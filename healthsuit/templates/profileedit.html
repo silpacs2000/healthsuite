@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}
+HealthSuit - Register
+{% endblock %}	
+{% block body %}  
+    <!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Registration</h2>
+							<ul class="bread-list">
+								<li><a href="/">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">User Registration</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+				
+		<!-- Start Contact Us -->
+		<section class="contact-us section">
+			<div class="container">
+				<div class="inner">
+					<div class="row"> 
+						<div class="col-lg-6">
+							<div class="contact-us-left">
+								<!--Start Google-map -->
+								<div id="myMap"></div>
+								<!--/End Google-map -->
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="contact-us-form">
+								<h2>Register with us</h2>
+								<p>If you need to predict any disease , you have to register ang login</p>
+								<!-- Form -->
+								<form class="form" method="POST">
+                                    {% csrf_token %}
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="form-group">
+												<input type="text" name="name" value="{{user.Name}}" required="">
+											</div>
+										</div>
+									
+										
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="password" name="password" value="{{user.Password}}" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="password" name="cpassword" placeholder="Confirm Password" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+											<div class="form-group">
+												<input type="text" name="phone" value="{{user.PhoneNo}}" required="">
+											</div>
+										</div>
+                                        <div class="col-lg-6">
+											<div class="form-group">
+												<input type="text" name="place" value="{{user.Place}}" required="">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<div class="form-group">
+												<textarea name="address" value="{{user.Address}}" required=""></textarea>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group login-btn">
+												<button class="btn" type="submit">Update</button>
+											</div>
+										</div>
+									</div>
+                                    {% if messages %}
+                                    {% for message in messages %}
+                                    {{message}}
+                                    {% endfor %}
+                                    {% endif %}
+								</form>
+								<!--/ End Form -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Contact Us -->
+{% endblock %}	

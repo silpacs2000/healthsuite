@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+HealthSuit - Register
+{% endblock %}	
+{% block body %}  
+        <!-- Error Page -->
+		<section class="error-page section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 offset-lg-3 col-12">
+						<!-- Error Inner -->
+						<div class="error-inner">
+							<h1>Profile<span>Welcome {{user.Name}}</span></h1>
+							<p>Your Name : {{user.Name}}</p>
+                            <p>Your Email ID : {{user.EmailID}}</p>
+                            <p>Your Password : {{user.Password}}</p>
+                            <p>Your Address : {{user.Address}}</p>
+                            <p>Your Phone Number : {{user.PhoneNo}}</p>
+                            <p>Your Place : {{user.Place}}</p>
+							
+							<a href="updateprofile/{{user.id}}"><button class="btn" type="submit">Update</button></a>
+							
+						</div>
+						<!--/ End Error Inner -->
+					</div>
+				</div>
+			</div>
+		</section>	
+		<!--/ End Error Page -->
+        {% endblock %}	

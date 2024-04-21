@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+HealthSuit - Login
+{% endblock %}	
+{% block body %}  
+    <!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Login</h2>
+							<ul class="bread-list">
+								<li><a href="/">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">User Login</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+				
+		<!-- Start Contact Us -->
+		<section class="contact-us section">
+			<div class="container">
+				<div class="inner">
+					<div class="row"> 
+						<div class="col-lg-6">
+							<div class="contact-us-left">
+								<!--Start Google-map -->
+								<div id="myMap"></div>
+								<!--/End Google-map -->
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="contact-us-form">
+								<h2>Login Here</h2>
+								<p>If you need to predict any disease , you have to register ang login</p>
+								<!-- Form -->
+								<form class="form" method="POST">
+                                    {% csrf_token %}
+									<div class="row">
+									
+										<div class="col-lg-6">
+											<div class="form-group">
+												<input type="email" name="email" placeholder="Email" required="">
+											</div>
+										</div>
+										
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="password" name="password" placeholder="Password" required="">
+                                                </div>
+                                            </div>
+                                           
+										<div class="col-12">
+											<div class="form-group login-btn">
+												<button class="btn" type="submit">Login</button>
+											</div>
+										</div>
+									</div>
+                                    {% if messages %}
+                                    {% for message in messages %}
+                                    {{message}}
+                                    {% endfor %}
+                                    {% endif %}
+								</form>
+								<!--/ End Form -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Contact Us -->
+{% endblock %}	

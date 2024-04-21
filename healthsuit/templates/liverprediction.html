@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}
+HealthSuit - Login
+{% endblock %}	
+{% block body %}  
+    <!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Prediction</h2>
+							<ul class="bread-list">
+								<li><a href="/">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">liver disease</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+				
+		<!-- Start Contact Us -->
+		<section class="contact-us section">
+			<div class="container">
+				<div class="inner">
+					<div class="row"> 
+						<div class="col-lg-6">
+							<div class="contact-us-left">                           
+                                {% if messages %}
+                                {{user.Name}}  , 
+                                {% for message in messages %}
+                                {{message}}
+                                {% endfor %}
+                                {% if prediction == 0 %}
+                                <a href="doctors/hepatology"></a><button class="btn" type="submit">Doctors</button>
+                                {% endif %}
+                                {% endif %}
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="contact-us-form">
+								<h2>Liver Disease</h2>
+								<p>If you need to predict liver disease , then enter your details</p>
+								<!-- Form -->
+								<form class="form" method="POST">
+                                    {% csrf_token %}
+									<div class="row">
+									
+										<div class="col-lg-6">
+											<div class="form-group">
+												<input type="text" name="name" value="{{user.Name}}" required="">
+											</div>
+										</div>
+										
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="age" placeholder="Your Age" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <select name="gender" id="gender">
+                                                        <option>Your Gender?</option>
+                                                        <option value="0">Female</option>
+                                                        <option value="1">Male</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="totalbilirubin" placeholder="Enter value for Total Bilirubin" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="directbilirubin" placeholder="Enter value for Direct Bilirubin" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="alkaline" placeholder="Enter value for lkphos Alkaline Phosphotase?" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="Alamine" placeholder="Enter value for gpt Alamine Aminotransferase?" required="">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="Sgot" placeholder="Enter value for Sgot Aspartate Aminotransferase" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="Protiens" placeholder="Enter value for Total Protiens" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="Albumin" placeholder="Enter value for LB Albumin?" required="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="Globulin" placeholder="Enter value for A/G Ratio Albumin and Globulin Ratio" required="">
+                                                </div>
+                                            </div>
+										    <div class="col-12">
+											    <div class="form-group login-btn">
+												    <button class="btn" type="submit">Predict</button>
+											</div>
+										</div>
+									</div>
+                                 
+								</form>
+								<!--/ End Form -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Contact Us -->
+{% endblock %}	
